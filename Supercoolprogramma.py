@@ -1,5 +1,5 @@
 def main():
-    naamBestand = "sequence"
+    naamBestand = "sequence.gb"
     leesBestand (naamBestand)
     
 def leesBestand(bestand):
@@ -7,26 +7,23 @@ def leesBestand(bestand):
     startLezen = False
     gbSequentie = ""
     atcgSequentie = ""
-    counter = 0
+    bestand = lees.readlines()
     for regel in bestand:
+        if startLezen:
+            gbSequentie += regel
         if "ORIGIN" in regel:
             startLezen = True
-
-        if startLezen == True:
-            counter += 1
-
-        if counter > 1:
-            gbSequentie = gbSequentie + regel
-
-    for letter in sequence:
-        if letter in "atcg":
+    for letter in gbSequentie:
+        if letter in "atcgn":
             atcgSequentie += letter
+    print(atcgSequentie)
         
- #retourneert de sequentie uit het bestand
- #jacco
+
 def bepaalGCpercentage (sequentie):
- #retourneert het GC percentage
- #joris
+     #retourneert het GC percentage
+     #joris
+    
+    
 def schrijfHTMLrapport (gcPercentage, sequentie, bestandsnaam):
      #schrijft het HTML rapport met de naam bestandsnaam_rapport.html
      #wessel
