@@ -8,6 +8,8 @@ def leesBestand(bestand):
     gbSequentie = ""
     atcgSequentie = ""
     bestand = lees.readlines()
+    cgCount = 0
+    actgCount = 0 
     for regel in bestand:
         if startLezen:
             gbSequentie += regel
@@ -16,10 +18,15 @@ def leesBestand(bestand):
     for letter in gbSequentie:
         if letter in "atcgn":
             atcgSequentie += letter
-    print(atcgSequentie)
+            actgCount += 1
+            if letter in "cg":
+                cgCount += 1
+    gcPercentage = (cgCount / actgCount * 100)
+    print("totaal nucleotiden: ",atcgSequentie)
+    print("GC-percentage: ",gcPercentage)
         
 
-def bepaalGCpercentage (sequentie):
+#def bepaalGCpercentage (sequentie):
      #retourneert het GC percentage
      #joris
     
